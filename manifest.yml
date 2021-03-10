@@ -1,0 +1,13 @@
+---
+services:
+  - mymongotest
+applications:
+  - name: GimmeSoda
+    memory: 1G
+    random-route: true
+    instances: 1
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 15.+ } }'
+      spring_profiles_active: 'test'
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    path: ./build/libs/spring-cloud-foundry-0.0.1-SNAPSHOT.jar
